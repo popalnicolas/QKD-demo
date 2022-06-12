@@ -3,13 +3,55 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from '@mui/system';
+import { createTheme, CssBaseline } from '@mui/material';
+import { green, greenLight, greyDark, greyLight, red, white } from './constants/colors';
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      default: greyDark,
+      paper: greyLight,
+    },
+    action: {
+      disabledBackground: greenLight,
+      disabled: greyLight,
+    },
+    primary: {
+      main: green,
+    },
+    secondary: {
+      main: greenLight,
+    },
+    error: {
+      main: red,
+    },
+    text: {
+      primary: white,
+      secondary: greyLight,
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        colorPrimary: {
+          backgroundColor: greyLight,
+        },
+      },
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
