@@ -42,15 +42,12 @@ function EvePage() {
       setButtonClicked(true);
 
       array2.map((e, i) => {
-          const bobsResult = polarizateBob(array1[i], array4[i], array3[i], e).replace("|", "").replace(">", "");     
-          
-          console.log(bobsResult);
 
-          if(!isNaN(Number(bobsResult))){
-            if(e !== array1[i]){
-              setDetected(true);
-            }
-          }
+        if(e === array1[i]){
+          const bobsResult = polarizateBob(array1[i], array4[i], array3[i], e).replace("|", "").replace(">", "");
+          if(isNaN(Number(bobsResult)))
+            setDetected(true);
+        }
       });
     }
   }
@@ -298,7 +295,7 @@ function EvePage() {
                       <TableRow key={i}>
                         <TableCell>{step > 3 && (e === 0 ? "NO" : "YES")}</TableCell>
                         <TableCell>{step > 3 && (polarizateBob(aliceArray[i], xGate[i], evesArray[i], e))}</TableCell>
-                        <TableCell>{step > 4 && (polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", ""))}</TableCell>
+                        <TableCell>{step > 4 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : "")}</TableCell>
                       </TableRow>
                     );
                   })}
