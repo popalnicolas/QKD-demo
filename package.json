@@ -1,12 +1,12 @@
 {
   "name": "qkd",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "author": {
     "name": "Nicolas Popal",
     "url": "https://popal.dev"
   },
-  "homepage": "./qkd",
+  "homepage": "https://popalnicolas.github.io/qkd/",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
