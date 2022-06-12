@@ -1,10 +1,9 @@
 import './App.css';
-import { Avatar, Button, Container, Grid, Step, StepButton, StepLabel, Stepper, Table, TableBody, TableCell, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, Table, TableBody, TableCell, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
-import { greenLight, greyDark, greyLight, white, whiteDark } from './constants/colors';
-import { grey } from '@mui/material/colors';
+import { greenLight, greyLight, white } from './constants/colors';
 import StepperComponent from './components/Stepper.component';
 
 function App() {
