@@ -98,7 +98,7 @@ function App() {
           <Typography color={step === 1 ? white : greyLight}>Alice randomly applies X gate on random classical bits.</Typography>
           <Typography color={step === 2 ? white : greyLight}>Result of bits from X gate and also bits which were not passed through X gate is polarized.</Typography>
           <Typography color={step === 3 ? white : greyLight}>Bob randomly applies H gate on the result received from Alice.</Typography>
-          <Typography color={step === 4 ? white : greyLight}>Bob sends his generated classical bits to Alice and vice versa for verification. Bob then discards all |-&gt; and |+&gt; from results and the rest is used as a shared key</Typography>
+          <Typography color={step === 4 ? white : greyLight}>Alice sends her classical bits which control the H gate to Bob. Bob compares the bits sent by Alice with his own classical bits which also control his H gate. Bob discards the rows wherever Alice's classical bits and his classical bits are not the same and tells Alice whether the row should be discarded or not everytime. Result is used as a shared key.</Typography>
         </Grid>
 
         <Grid item xs={12} textAlign="center" sx={{marginTop: 5}}>
