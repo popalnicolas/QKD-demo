@@ -1,5 +1,4 @@
-import { Container, AppBar as MuiAppBar, Grid, Box, Typography, Button } from "@mui/material";
-import { margin } from "@mui/system";
+import { Container, AppBar as MuiAppBar, Grid, Box, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function AppBar() {
