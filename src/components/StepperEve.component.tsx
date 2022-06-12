@@ -5,7 +5,7 @@ type StepperComponentType = {
     setStep: (step: number) => void;
 }
 
-function StepperComponent(props: StepperComponentType) {
+export default function StepperEveComponent(props: StepperComponentType) {
     return ( 
         <Stepper nonLinear activeStep={props.step}>
             <Step completed={props.step > 0}>
@@ -25,16 +25,19 @@ function StepperComponent(props: StepperComponentType) {
             </Step>
             <Step completed={props.step > 3}>
               <StepButton onClick={() => props.setStep(3)}>
-                <StepLabel>Apply H gate</StepLabel>
+                <StepLabel>Evesdropping</StepLabel>
               </StepButton>
             </Step>
             <Step completed={props.step > 4}>
               <StepButton onClick={() => props.setStep(4)}>
+                <StepLabel>Apply H gate</StepLabel>
+              </StepButton>
+            </Step>
+            <Step completed={props.step > 5}>
+              <StepButton onClick={() => props.setStep(5)}>
                 <StepLabel>Generate shared key</StepLabel>
               </StepButton>
             </Step>
           </Stepper>
      );
 }
-
-export default StepperComponent;
