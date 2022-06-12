@@ -85,7 +85,7 @@ function App() {
         <Grid item xs={5.25}>
           <Grid container sx={{paddingTop: 10}}>
             <Grid item xs={12} display="flex" justifyContent="right" alignItems="right">
-              <Avatar alt='Alice' src='https://static.wikia.nocookie.net/disney/images/7/75/Profile_-_Alice.jpeg' sx={{width: 100, height: 100}} />
+              <Avatar alt='Alice' src={process.env.PUBLIC_URL +'/images/alice.jpeg'} sx={{width: 100, height: 100}} />
             </Grid>
             <Grid item xs={12} textAlign="right">
               <Typography>Random classical bits: </Typography>
@@ -142,7 +142,7 @@ function App() {
         <Grid item xs={5.25}>
           <Grid container sx={{paddingTop: 10}}>
             <Grid item xs={12}>
-              <Avatar alt='Alice' src='https://i1.sndcdn.com/avatars-RbvaWwtxWFfvyPlJ-FznLgg-t240x240.jpg' sx={{width: 100, height: 100}} />
+            <Avatar alt='Alice' src={process.env.PUBLIC_URL +'/images/bob.jpeg'} sx={{width: 100, height: 100}} />
             </Grid>
             <Grid item xs={12}>
               <Typography>Random classical bits: </Typography>

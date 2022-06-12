@@ -1,7 +1,7 @@
 {
   "name": "qkd",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "author": {
     "name": "Nicolas Popal",
     "url": "https://popal.dev"
