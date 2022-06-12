@@ -1,9 +1,11 @@
 import './App.css';
-import { Avatar, Button, Container, Grid, Table, TableBody, TableCell, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, Step, StepButton, StepLabel, Stepper, Table, TableBody, TableCell, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
-import { greenLight } from './constants/colors';
+import { greenLight, greyDark, greyLight, white, whiteDark } from './constants/colors';
+import { grey } from '@mui/material/colors';
+import StepperComponent from './components/Stepper.component';
 
 function App() {
   
@@ -11,6 +13,8 @@ function App() {
   const [bobsArray, setBobsArray] = useState<number[]>([]);
   const [xGate, setXGate] = useState<number[]>([]);
   const [buttonClicked, setButtonClicked] = useState(false);
+
+  const [step, setStep] = useState(0);
 
   const [size, setSize] = useState(50);
 
@@ -83,10 +87,25 @@ function App() {
           <Button sx={{width: "100%", height:50}} variant='contained' onClick={() => generateArrays(size)}>Generate</Button>
         </Grid>
         <Grid item xs={4}></Grid>
-        {buttonClicked && <><Grid item xs={12} textAlign="center" sx={{marginTop: 10}}>
+
+        {buttonClicked && <>
+
+        <Grid item xs={12} sx={{marginTop: 5}}>
+          <StepperComponent step={step} setStep={setStep} />
+        </Grid>
+
+        <Grid item xs={12} textAlign="center">
+          <Typography color={step === 0 ? white : greyLight}>Random classical bits are generated.</Typography>
+          <Typography color={step === 1 ? white : greyLight}>Alice randomly applies X gate on random classical bits.</Typography>
+          <Typography color={step === 2 ? white : greyLight}>Result of bits from X gate and also bits which were not passed through X gate is polarized.</Typography>
+          <Typography color={step === 3 ? white : greyLight}>Bob randomly applies H gate on the result received from Alice.</Typography>
+          <Typography color={step === 4 ? white : greyLight}>Bob sends his generated classical bits to Alice and vice versa for verification. Bob then discards all |-&gt; and |+&gt; from results and the rest is used as a shared key</Typography>
+        </Grid>
+
+        <Grid item xs={12} textAlign="center" sx={{marginTop: 5}}>
           <b style={{color: greenLight}}>Shared key:&nbsp;</b>
         {bobsArray.map((e, i) => {
-          return (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "");
+          return (step > 3 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : ""));
         })}
         </Grid>
         <Grid item xs={5.25}>
@@ -115,8 +134,8 @@ function App() {
                     return (
                       <TableRow>
                         <TableCell align='right'>{e}</TableCell>
-                        <TableCell align='right'>{xGate[i] === 0 ? "NO" : "YES"}</TableCell>
-                        <TableCell align='right'>{polarizateAlice(e, xGate[i])}</TableCell>
+                        <TableCell align='right'>{step > 0 && (xGate[i] === 0 ? "NO" : "YES")}</TableCell>
+                        <TableCell align='right'>{step > 1 && (polarizateAlice(e, xGate[i]))}</TableCell>
                       </TableRow>
                     );
                   })}
@@ -139,7 +158,7 @@ function App() {
 
                     return (
                       <TableRow>
-                        <TableCell align='center'>{e === aliceArray[i] ? <CloseIcon sx={{fontSize: 12}} /> : <CheckIcon sx={{fontSize: 12}} />}</TableCell>
+                        <TableCell align='center'>{step > 3 && (e === aliceArray[i] ? <CloseIcon sx={{fontSize: 12}} /> : <CheckIcon sx={{fontSize: 12}} />)}</TableCell>
                       </TableRow>
                     );
                   })}
@@ -173,9 +192,9 @@ function App() {
 
                     return (
                       <TableRow>
-                        <TableCell>{e === 0 ? "NO" : "YES"}</TableCell>
-                        <TableCell>{polarizateBob(aliceArray[i], xGate[i], e)}</TableCell>
-                        <TableCell>{e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : ""}</TableCell>
+                        <TableCell>{step > 2 && (e === 0 ? "NO" : "YES")}</TableCell>
+                        <TableCell>{step > 2 && (polarizateBob(aliceArray[i], xGate[i], e))}</TableCell>
+                        <TableCell>{step > 3 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "")}</TableCell>
                       </TableRow>
                     );
                   })}
