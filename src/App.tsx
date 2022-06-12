@@ -1,5 +1,5 @@
 import './App.css';
-import { Avatar, Button, Container, Grid, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Container, Grid, Table, TableBody, TableCell, TableHead, TableRow, TextField, Tooltip, Typography } from '@mui/material';
 import { useState } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
@@ -96,7 +96,9 @@ function App() {
             </Grid>
             <Grid item xs={12} textAlign="right">
               <Typography style={{color: greenLight}} fontWeight="bold">Random classical bits: </Typography>
-              <Typography noWrap>{ aliceArray }</Typography>
+              <Tooltip title={ aliceArray }>
+                <Typography noWrap>{ aliceArray }</Typography>
+              </Tooltip>
             </Grid>
             <Grid item xs={12}>
               <Table>
@@ -153,7 +155,9 @@ function App() {
             </Grid>
             <Grid item xs={12}>
               <Typography style={{color: greenLight}} fontWeight="bold">Random classical bits: </Typography>
-              <Typography noWrap>{ bobsArray }</Typography>
+              <Tooltip title={ bobsArray }>
+                <Typography noWrap>{ bobsArray }</Typography>
+              </Tooltip>
             </Grid>
             <Grid item xs={12}>
               <Table>
