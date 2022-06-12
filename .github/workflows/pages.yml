@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 permissions:
   contents: write
@@ -48,6 +46,6 @@ jobs:
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
-        token: ${{ secrets.GH_PAT }}
+        # token: ${{ secrets.GH_PAT }}
         branch: gh-pages
         folder: build
