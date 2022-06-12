@@ -94,7 +94,7 @@ function App() {
           <StepperComponent step={step} setStep={setStep} />
         </Grid>
 
-        <Grid item xs={12} textAlign="center">
+        <Grid item xs={12} textAlign="center" marginRight={20} marginLeft={20}>
           <Typography color={step === 0 ? white : greyLight}>Random classical bits are generated.</Typography>
           <Typography color={step === 1 ? white : greyLight}>Alice randomly applies X gate on random classical bits.</Typography>
           <Typography color={step === 2 ? white : greyLight}>Result of bits from X gate and also bits which were not passed through X gate is polarized.</Typography>
