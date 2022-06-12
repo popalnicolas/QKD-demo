@@ -102,7 +102,7 @@ function App() {
         </Grid>
 
         <Grid item xs={12} textAlign="center" sx={{marginTop: 5}}>
-          <b style={{color: greenLight}}>Shared key:&nbsp;</b>
+          {step > 3 && <b style={{color: greenLight}}>Shared key:</b>}&nbsp;
         {bobsArray.map((e, i) => {
           return (step > 3 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : ""));
         })}
@@ -131,7 +131,7 @@ function App() {
                   {aliceArray.map((e, i) => {
 
                     return (
-                      <TableRow>
+                      <TableRow key={i}>
                         <TableCell align='right'>{e}</TableCell>
                         <TableCell align='right'>{step > 0 && (xGate[i] === 0 ? "NO" : "YES")}</TableCell>
                         <TableCell align='right'>{step > 1 && (polarizateAlice(e, xGate[i]))}</TableCell>
@@ -156,7 +156,7 @@ function App() {
                   {bobsArray.map((e, i) => {
 
                     return (
-                      <TableRow>
+                      <TableRow key={i}>
                         <TableCell align='center'>{step > 3 && (e === aliceArray[i] ? <CloseIcon sx={{fontSize: 12}} /> : <CheckIcon sx={{fontSize: 12}} />)}</TableCell>
                       </TableRow>
                     );
@@ -190,7 +190,7 @@ function App() {
                   {bobsArray.map((e, i) => {
 
                     return (
-                      <TableRow>
+                      <TableRow key={i}>
                         <TableCell>{step > 2 && (e === 0 ? "NO" : "YES")}</TableCell>
                         <TableCell>{step > 2 && (polarizateBob(aliceArray[i], xGate[i], e))}</TableCell>
                         <TableCell>{step > 3 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "")}</TableCell>
