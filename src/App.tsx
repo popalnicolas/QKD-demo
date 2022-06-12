@@ -70,7 +70,7 @@ function App() {
       <Grid container spacing={2}>
         <Grid item xs={4}></Grid>
         <Grid item xs={2}>
-          <TextField error={size < 10} helperText={ size < 10 ? "Size must be at least 10" : ""} InputProps={{ inputProps: { min: 10 } }} label="Classical bit size" sx={{width: "100%"}} type="number" defaultValue={50} onChange={(e) => setSize(Number(e.target.value))} />
+          <TextField error={size < 10} helperText={ size < 10 ? "Size must be at least 10" : ""} InputProps={{ inputProps: { min: 10, step: 5 } }} label="Classical bit size" sx={{width: "100%"}} type="number" defaultValue={50} onChange={(e) => setSize(Number(e.target.value))} />
         </Grid>
         <Grid item xs={2} textAlign="center" alignItems="center" alignContent="center" alignSelf="center">
           <Button sx={{width: "100%", height:"100%"}} variant='contained' onClick={() => generateArrays(size)}>Generate</Button>
