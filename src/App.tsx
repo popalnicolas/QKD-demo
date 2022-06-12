@@ -10,10 +10,12 @@ function App() {
   const [aliceArray, setAliceArray] = useState<number[]>([]);
   const [bobsArray, setBobsArray] = useState<number[]>([]);
   const [xGate, setXGate] = useState<number[]>([]);
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   const [size, setSize] = useState(50);
 
   const generateArrays = (size: number) => {
+    setButtonClicked(false);
     if(size >= 10 && size <= 150){
       const array1: number[] = [];
       const array2: number[] = [];
@@ -27,6 +29,8 @@ function App() {
       setAliceArray(array1);
       setBobsArray(array2);
       setXGate(array3);
+
+      setButtonClicked(true);
     }
   }
 
@@ -79,7 +83,7 @@ function App() {
           <Button sx={{width: "100%", height:50}} variant='contained' onClick={() => generateArrays(size)}>Generate</Button>
         </Grid>
         <Grid item xs={4}></Grid>
-        <Grid item xs={12} textAlign="center" sx={{marginTop: 10}}>
+        {buttonClicked && <><Grid item xs={12} textAlign="center" sx={{marginTop: 10}}>
           <b style={{color: greenLight}}>Shared key:&nbsp;</b>
         {bobsArray.map((e, i) => {
           return (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "");
@@ -175,7 +179,7 @@ function App() {
               </Table>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid></>}
       </Grid>
     </Container>
   );
