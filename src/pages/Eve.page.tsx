@@ -19,7 +19,7 @@ function EvePage() {
 
   const generateArrays = (size: number) => {
     setButtonClicked(false);
-    if(size >= 5 && size <= 150){
+    if(size >= 10 && size <= 150){
 
       setDetected(false);
 
@@ -170,7 +170,7 @@ function EvePage() {
       <Grid container spacing={2}>
         <Grid item xs={4}></Grid>
         <Grid item xs={2.5}>
-          <TextField error={size < 5 || size > 150} helperText={ size < 5 || size > 150 ? "Size must be between 5 and 150" : ""} InputProps={{ inputProps: { min: 5, max: 150, step: 5, style: { textAlign: "center" } } }} label="Classical bit size" sx={{width: "100%"}} type="number" defaultValue={50} onChange={(e) => setSize(Number(e.target.value))} />
+          <TextField error={size < 10 || size > 150} helperText={ size < 10 || size > 150 ? "Size must be between 10 and 150" : ""} InputProps={{ inputProps: { min: 10, max: 150, step: 5, style: { textAlign: "center" } } }} label="Classical bit size" sx={{width: "100%"}} type="number" defaultValue={50} onChange={(e) => setSize(Number(e.target.value))} />
         </Grid>
         <Grid item xs={1.5} textAlign="center" alignItems="center" alignContent="center" alignSelf="top-center">
           <Button sx={{width: "100%", height:50}} variant='contained' onClick={() => generateArrays(size)}>Generate</Button>
