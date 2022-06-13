@@ -245,7 +245,6 @@ function EvePage() {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell style={{color: greenLight, fontWeight: "bold"}} align='center'>Bit</TableCell>
                     <TableCell style={{color: greenLight, fontWeight: "bold"}} align='center'>H Gate Applied?</TableCell>
                     <TableCell style={{color: greenLight, fontWeight: "bold"}} align='center'>After Polarization</TableCell>
                   </TableRow>
@@ -255,7 +254,6 @@ function EvePage() {
 
                     return (
                       <TableRow key={i}>
-                        <TableCell align='center'>{step > 2 && e}</TableCell>
                         <TableCell align='center'>{step > 2 && (e === 0 ? "NO" : "YES")}</TableCell>
                         <TableCell align='center'>{step > 2 && polarizateEve(aliceArray[i], xGate[i], e)}</TableCell>
                       </TableRow>
