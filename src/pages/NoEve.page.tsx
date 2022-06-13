@@ -18,10 +18,11 @@ function NoEvePage() {
   const generateArrays = (size: number) => {
     setButtonClicked(false);
     if(size >= 10 && size <= 150){
-      const array1: number[] = [];
-      const array2: number[] = [];
-      const array3: number[] = [];
-      for(let i = 0; i< size; i++){
+      const array1: number[] = [];//Alices array
+      const array2: number[] = [];//Bobs array
+      const array3: number[] = [];//Eves array
+      for(let i = 0; i < size; i++){
+        // Generating random 0s and 1s for each array
         array1.push(Math.floor(Math.random() * 2));
         array2.push(Math.floor(Math.random() * 2));
         array3.push(Math.floor(Math.random() * 2));

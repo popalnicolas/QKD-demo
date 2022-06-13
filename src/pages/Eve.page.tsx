@@ -23,11 +23,12 @@ function EvePage() {
 
       setDetected(false);
 
-      const array1: number[] = [];
-      const array2: number[] = [];
-      const array3: number[] = [];
-      const array4: number[] = [];
-      for(let i = 0; i< size; i++){
+      const array1: number[] = [];//Alices array
+      const array2: number[] = [];//Bobs array
+      const array3: number[] = [];//Eves array
+      const array4: number[] = [];//Alices X gates
+      for(let i = 0; i < size; i++){
+        // Generating random 0s and 1s for each array
         array1.push(Math.floor(Math.random() * 2));
         array2.push(Math.floor(Math.random() * 2));
         array3.push(Math.floor(Math.random() * 2));
@@ -41,8 +42,8 @@ function EvePage() {
 
       setButtonClicked(true);
 
-      array2.map((e, i) => {
-
+      array2.forEach((e, i) => {
+        // Evesdropper check
         if(e === array1[i]){
           const bobsResult = polarizateBob(array1[i], array4[i], array3[i], e).replace("|", "").replace(">", "");
           if(isNaN(Number(bobsResult)))
