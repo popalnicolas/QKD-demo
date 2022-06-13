@@ -8,5 +8,5 @@ This project was constructed to show how Qauntum Key Distribution works. Project
 - MUI
 - GitHub actions for deployment
 
-### [GitHub Pages]https://popalnicolas.github.io/QKD-demo/)
+### [GitHub Pages](https://popalnicolas.github.io/QKD-demo/)
 
