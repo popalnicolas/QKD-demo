@@ -185,7 +185,7 @@ function EvePage() {
           <Typography color={step === 1 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(1)}>Alice randomly applies X gate on random classical bits.</Typography>
           <Typography color={step === 2 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(2)}>Result of bits from X gate and also bits which were not passed through X gate is polarized.</Typography>
           <Typography color={step === 3 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(3)}>Eavesdropper Eve is getting photons from Alice and randomly applies H gate. This actions changes photons polarization, which is send to Bob.</Typography>
-          <Typography color={step === 4 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(4)}>Bob randomly applies H gate on the result received from Alice.</Typography>
+          <Typography color={step === 4 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(4)}>Bob randomly applies H gate on the result received from Eve.</Typography>
           <Typography color={step === 5 ? white : greyLight} sx={{cursor: "pointer"}} onClick={() => setStep(5)}>Alice sends her classical bits which control the H gate to Bob. Bob compares the bits sent by Alice with his own classical bits which also control his H gate. Bob discards the rows wherever Alice's classical bits and his classical bits are not the same and tells Alice whether the row should be discarded or not everytime. Result is used as a shared key.</Typography>
         </Grid>
 

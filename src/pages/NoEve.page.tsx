@@ -167,7 +167,7 @@ function NoEvePage() {
         <Grid item xs={5.25}>
           <Grid container sx={{paddingTop: 10}}>
             <Grid item xs={12}>
-            <Avatar alt='Alice' src={process.env.PUBLIC_URL +'/images/bob.jpeg'} sx={{width: 100, height: 100}} />
+            <Avatar alt='Bob' src={process.env.PUBLIC_URL +'/images/bob.jpeg'} sx={{width: 100, height: 100}} />
             </Grid>
             <Grid item xs={12}>
               <Typography style={{color: greenLight}} fontWeight="bold">Random classical bits: </Typography>
