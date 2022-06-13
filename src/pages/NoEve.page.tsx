@@ -131,8 +131,8 @@ function NoEvePage() {
                     return (
                       <TableRow key={i}>
                         <TableCell align='right'>{e}</TableCell>
-                        <TableCell align='right'>{step > 0 && (xGate[i] === 0 ? "NO" : "YES")}</TableCell>
-                        <TableCell align='right'>{step > 1 && (polarizateAlice(e, xGate[i]))}</TableCell>
+                        {step > 0 && <TableCell align='right'>{xGate[i] === 0 ? "NO" : "YES"}</TableCell>}
+                        {step > 1 && <TableCell align='right'>{polarizateAlice(e, xGate[i])}</TableCell>}
                       </TableRow>
                     );
                   })}
@@ -155,7 +155,7 @@ function NoEvePage() {
 
                     return (
                       <TableRow key={i}>
-                        <TableCell align='center'>{step > 3 && (e === aliceArray[i] ? <CloseIcon sx={{fontSize: 12}} /> : <CheckIcon sx={{fontSize: 12}} />)}</TableCell>
+                        {step > 3 && <TableCell align='center'>{(e === aliceArray[i] ? <CloseIcon sx={{fontSize: 12}} /> : <CheckIcon sx={{fontSize: 12}} />)}</TableCell>}
                       </TableRow>
                     );
                   })}
@@ -189,9 +189,9 @@ function NoEvePage() {
 
                     return (
                       <TableRow key={i}>
-                        <TableCell>{step > 2 && (e === 0 ? "NO" : "YES")}</TableCell>
-                        <TableCell>{step > 2 && (polarizateBob(aliceArray[i], xGate[i], e))}</TableCell>
-                        <TableCell>{step > 3 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "")}</TableCell>
+                        {step > 2 && <TableCell>{(e === 0 ? "NO" : "YES")}</TableCell>}
+                        {step > 2 && <TableCell>{(polarizateBob(aliceArray[i], xGate[i], e))}</TableCell>}
+                        {step > 3 && <TableCell>{(e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], e).replace("|", "").replace(">", "") : "")}</TableCell>}
                       </TableRow>
                     );
                   })}

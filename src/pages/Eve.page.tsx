@@ -190,7 +190,7 @@ function EvePage() {
         </Grid>
 
         <Grid item xs={12} textAlign="center" sx={{marginTop: 5}}>
-          {step > 4 && (detected ? <Typography color="#F94C66">EVESDROPPER DETECTED</Typography> : <Typography color="#5FD068">EVESDROPPER UNDETECTED</Typography>)}&nbsp;
+          {step > 4 && (detected ? <Typography fontWeight="bold" color="#F94C66">EVESDROPPER DETECTED</Typography> : <Typography fontWeight="bold" color="#5FD068">EVESDROPPER UNDETECTED</Typography>)}&nbsp;
         </Grid>
         <Grid item xs={4}>
           <Grid container sx={{paddingTop: 10}}>
@@ -218,8 +218,8 @@ function EvePage() {
                     return (
                       <TableRow key={i}>
                         <TableCell align='right'>{e}</TableCell>
-                        <TableCell align='right'>{step > 0 && (xGate[i] === 0 ? "NO" : "YES")}</TableCell>
-                        <TableCell align='right'>{step > 1 && numberToPhoton((polarizateAlice(e, xGate[i])))}</TableCell>
+                        {step > 0 && <TableCell align='right'>{(xGate[i] === 0 ? "NO" : "YES")}</TableCell>}
+                        {step > 1 && <TableCell align='right'>{numberToPhoton((polarizateAlice(e, xGate[i])))}</TableCell>}
                       </TableRow>
                     );
                   })}
@@ -254,8 +254,8 @@ function EvePage() {
 
                     return (
                       <TableRow key={i}>
-                        <TableCell align='center'>{step > 2 && (e === 0 ? "NO" : "YES")}</TableCell>
-                        <TableCell align='center'>{step > 2 && polarizateEve(aliceArray[i], xGate[i], e)}</TableCell>
+                        {step > 2 && <TableCell align='center'>{(e === 0 ? "NO" : "YES")}</TableCell>}
+                        {step > 2 && <TableCell align='center'>{polarizateEve(aliceArray[i], xGate[i], e)}</TableCell>}
                       </TableRow>
                     );
                   })}
@@ -291,9 +291,9 @@ function EvePage() {
 
                     return (
                       <TableRow key={i}>
-                        <TableCell>{step > 3 && (e === 0 ? "NO" : "YES")}</TableCell>
-                        <TableCell>{step > 3 && (polarizateBob(aliceArray[i], xGate[i], evesArray[i], e))}</TableCell>
-                        <TableCell>{step > 4 && (e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : "")}</TableCell>
+                        {step > 3 && <TableCell>{(e === 0 ? "NO" : "YES")}</TableCell>}
+                        {step > 3 && <TableCell>{(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e))}</TableCell>}
+                        {step > 4 && <TableCell>{(e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : "")}</TableCell>}
                       </TableRow>
                     );
                   })}
