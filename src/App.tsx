@@ -9,7 +9,7 @@ function App() {
     <>
     <AppBarComponent />
       <Routes>
-        <Route path='/qkd/eve' element={<EvePage />} />
+        <Route path={process.env.PUBLIC_URL + '/eve'} element={<EvePage />} />
         <Route path='*' element={<NoEvePage />} />
       </Routes>
     </>

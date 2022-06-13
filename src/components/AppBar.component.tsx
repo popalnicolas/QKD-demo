@@ -8,10 +8,10 @@ function AppBar() {
             <Container maxWidth="sm">
                 <Grid container textAlign="center">
                     <Grid item xs={6}>
-                        <Link to="/qkd" style={{textDecoration: "none"}}><Button color="secondary">Without Eavesdropper</Button></Link>
+                        <Link to={process.env.PUBLIC_URL} style={{textDecoration: "none"}}><Button color="secondary">Without Eavesdropper</Button></Link>
                     </Grid>
                     <Grid item xs={6}>
-                        <Link to="/qkd/eve" style={{textDecoration: "none"}}><Button color="secondary">With Eavesdropper</Button></Link>
+                        <Link to={process.env.PUBLIC_URL + "/eve"} style={{textDecoration: "none"}}><Button color="secondary">With Eavesdropper</Button></Link>
                     </Grid>
                 </Grid>
             </Container>
