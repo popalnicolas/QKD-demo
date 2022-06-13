@@ -8,5 +8,5 @@ This project was written as an example for IT Security and Cryptography in Pract
 - MUI
 - GitHub actions for deployment
 
-### [GitHub Pages]https://popalnicolas.github.io/QKD-demo/)
+### [GitHub Pages](https://popalnicolas.github.io/QKD-demo/)
 
