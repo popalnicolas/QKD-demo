@@ -2,6 +2,7 @@ import { Avatar, Button, Container, Grid, Table, TableBody, TableCell, TableHead
 import { useState } from 'react';
 import { greenLight, greyLight, white } from '../constants/colors';
 import StepperEveComponent from '../components/StepperEve.component';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 function EvePage() {
   const [aliceArray, setAliceArray] = useState<number[]>([]);
@@ -294,7 +295,7 @@ function EvePage() {
                       <TableRow key={i}>
                         {step > 3 && <TableCell>{(e === 0 ? "NO" : "YES")}</TableCell>}
                         {step > 3 && <TableCell>{(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e))}</TableCell>}
-                        {step > 4 && <TableCell>{(e === aliceArray[i] ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : "")}</TableCell>}
+                        {step > 4 && <TableCell>{(e === aliceArray[i] ? (!isNaN(Number(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", ""))) ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : <WarningAmberIcon sx={{fontSize: 12, color: "#F94C66"}} />) : "")}</TableCell>}
                       </TableRow>
                     );
                   })}
