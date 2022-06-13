@@ -23,12 +23,12 @@ export default function StepperNoEveComponent(props: StepperComponentType) {
                 <StepLabel>Polarization</StepLabel>
               </StepButton>
             </Step>
-            <Step completed={props.step > 4}>
+            <Step completed={props.step > 3}>
               <StepButton onClick={() => props.setStep(3)}>
                 <StepLabel>Apply H gate</StepLabel>
               </StepButton>
             </Step>
-            <Step completed={props.step > 5}>
+            <Step completed={props.step > 4}>
               <StepButton onClick={() => props.setStep(4)}>
                 <StepLabel>Generate shared key</StepLabel>
               </StepButton>
