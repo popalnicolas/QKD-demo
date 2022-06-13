@@ -6,7 +6,7 @@
     "name": "Nicolas Popal",
     "url": "https://popal.dev"
   },
-  "homepage": "https://popalnicolas.github.io/qkd/",
+  "homepage": "https://popalnicolas.github.io/QKD-demo/",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
