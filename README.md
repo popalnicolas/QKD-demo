@@ -10,3 +10,12 @@ This project was constructed to show how Qauntum Key Distribution works. Project
 
 ### [GitHub Pages](https://popalnicolas.github.io/QKD-demo/)
 
+
+## Installation
+
+Download this project and run these commands:
+
+```console
+yarn install
+yarn start
+```
