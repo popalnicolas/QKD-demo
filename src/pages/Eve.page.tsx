@@ -295,7 +295,7 @@ function EvePage() {
                       <TableRow key={i}>
                         {step > 3 && <TableCell>{(e === 0 ? "NO" : "YES")}</TableCell>}
                         {step > 3 && <TableCell>{(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e))}</TableCell>}
-                        {step > 4 && <TableCell>{(e === aliceArray[i] ? (!isNaN(Number(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", ""))) ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : <WarningAmberIcon sx={{fontSize: 12, color: "#F94C66"}} />) : "")}</TableCell>}
+                        {step > 4 && <TableCell>{(e === aliceArray[i] ? (!isNaN(Number(polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", ""))) ? polarizateBob(aliceArray[i], xGate[i], evesArray[i], e).replace("|", "").replace(">", "").replace("+", "").replace("-", "") : <Tooltip title="Eavesdropper detected on this line"><WarningAmberIcon sx={{fontSize: 12, color: "#F94C66"}} /></Tooltip>) : "")}</TableCell>}
                       </TableRow>
                     );
                   })}
